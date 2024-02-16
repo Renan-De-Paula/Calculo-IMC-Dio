@@ -1,17 +1,29 @@
-let peso = 63;
-let altura = 1.63;
-let calculoImc = peso / Math.pow(altura,2);
-let classificacao = "Sua condição é: ";
-console.log("seu calculo do IMC esta em: " + calculoImc);
-
-if (calculoImc < 18.5) {
-    console.log(classificacao + "Abaixo do Peso");
-} else if (calculoImc >= 18.5 && calculoImc < 25){
-    console.log(classificacao + "Peso Ideal");
-}else if (calculoImc >= 25 && calculoImc < 30) {
-    console.log(classificacao + "Obesidade Grau I");
-} else if (calculoImc >= 30 && calculoImc <= 40) { 
-    console.log(classificacao + "Obesidade Grau II (severa)");
-} else {
-   console.log (classificacao + "Obesidade Morbida");
+function calcularImc(peso, altura) {
+    return peso / Math.pow(altura, 2);
 }
+
+function classificarImc(imc) {
+    if (imc < 18.5) {
+        return "Abaixo do Peso";
+    } else if (imc >= 18.5 && imc < 25) {
+        return "Peso Ideal";
+    } else if (imc >= 25 && imc < 30) {
+        return "Obesidade Grau I";
+    } else if (imc >= 30 && imc <= 40) {
+        return "Obesidade Grau II (severa)";
+    } else {
+        return "Obesidade Morbida";
+    }
+}
+
+function main() {
+    let peso = 63;
+    let altura = 1.63;
+
+    let resultadoCalculo = calcularImc(peso, altura);
+    let imc = calcularImc(peso, altura);
+    console.log("O Resultado é:  " +  resultadoCalculo.toFixed(2));
+    console.log("Sua condição é: " + classificarImc(imc));
+}
+
+main()
